@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { AuthState, User } from '../types';
-import { authService } from '../services/authService';
+import { authService, VerifyOTPResponse } from '../services/authService';
 import * as SecureStore from 'expo-secure-store';
 import { STORAGE_KEYS } from '../constants/config';
 
@@ -65,9 +65,12 @@ const authSlice = createSlice({
             })
 
             .addCase(verifyOTP.fulfilled, (state, action) => {
-                if (action.payload.token) {
+                if (action.payload.token && action.payload.user) {
                     state.token = action.payload.token;
+                    state.user = action.payload.user;
+                    state.isAuthenticated = true;
                     SecureStore.setItemAsync(STORAGE_KEYS.AUTH_TOKEN, action.payload.token);
+                    SecureStore.setItemAsync(STORAGE_KEYS.USER_DATA, JSON.stringify(action.payload.user));
                 }
             })
             .addCase(setPIN.fulfilled, (state, action) => {
