@@ -29,3 +29,11 @@ export interface SetPINData {
     phoneNumber: string;
     pin: string;
 }
+
+export interface VerifyOTPResponse {
+    success: boolean;
+    message?: string;
+    token?: string;
+    user?: any;
+    isNewUser?: boolean;
+}
