@@ -8,10 +8,10 @@ export interface IUser extends Document {
     pin: string;
     isVerified: boolean;
     kycStatus: 'none' | 'pending' | 'verified' | 'rejected';
+    upiId?: string;
     createdAt: Date;
     updatedAt: Date;
     comparePin(candidatePin: string): Promise<boolean>;
-    hashPin(pin: string): Promise<string>;
 }
 
 const userSchema = new Schema<IUser>(
@@ -44,6 +44,11 @@ const userSchema = new Schema<IUser>(
             type: String,
             enum: ['none', 'pending', 'verified', 'rejected'],
             default: 'none',
+        },
+        upiId: {
+            type: String,
+            sparse: true,
+            trim: true,
         },
     },
     {
