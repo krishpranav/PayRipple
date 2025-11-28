@@ -16,6 +16,7 @@ export interface ITransaction extends Document {
         receiverPhone?: string;
         bankAccount?: string;
         upiId?: string;
+        p2pTransferId?: string;
     };
     createdAt: Date;
     updatedAt: Date;
@@ -69,7 +70,6 @@ const transactionSchema = new Schema<ITransaction>(
     }
 );
 
-// Indexes for frequent queries
 transactionSchema.index({ userId: 1, createdAt: -1 });
 transactionSchema.index({ referenceId: 1 });
 transactionSchema.index({ status: 1 });
