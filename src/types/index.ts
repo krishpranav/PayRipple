@@ -7,11 +7,51 @@ export interface User {
     createdAt: string;
 }
 
+export interface Wallet {
+    balance: number;
+    currency: string;
+    isActive: boolean;
+}
+
+export interface Transaction {
+    id: string;
+    type: 'credit' | 'debit' | 'transfer' | 'refund';
+    amount: number;
+    status: 'pending' | 'success' | 'failed';
+    description: string;
+    referenceId: string;
+    createdAt: string;
+}
+
+export interface BankAccount {
+    id: string;
+    bankName: string;
+    accountNumber: string;
+    ifscCode: string;
+    accountHolderName: string;
+    isVerified: boolean;
+    isDefault: boolean;
+    createdAt: string;
+}
+
+export interface AddMoneyRequest {
+    amount: number;
+    bankAccountId: string;
+}
+
+export interface AddBankAccountRequest {
+    bankName: string;
+    accountNumber: string;
+    ifscCode: string;
+    accountHolderName: string;
+}
+
 export interface AuthState {
     user: User | null;
     token: string | null;
     isLoading: boolean;
     isAuthenticated: boolean;
+    wallet?: Wallet;
 }
 
 export interface OTPResponse {
