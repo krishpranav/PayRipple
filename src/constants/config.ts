@@ -24,3 +24,14 @@ export const STORAGE_KEYS = {
     AUTH_TOKEN: 'auth_token',
     USER_DATA: 'user_data',
 };
+
+export const P2P_ENDPOINTS = {
+    SEND_MONEY: '/p2p/send',
+    REQUEST_MONEY: '/p2p/request',
+    P2P_HISTORY: '/p2p/history',
+};
+
+export const QR_ENDPOINTS = {
+    GENERATE: '/qr/generate',
+    PAY: '/qr/pay',
+};
