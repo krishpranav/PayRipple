@@ -7,6 +7,19 @@ export const AUTH_ENDPOINTS = {
     VERIFY_PIN: '/auth/verify-pin',
 };
 
+export const WALLET_ENDPOINTS = {
+    GET_BALANCE: '/wallet/balance',
+    ADD_MONEY: '/wallet/add-money',
+    TRANSACTIONS: '/wallet/transactions',
+};
+
+export const BANK_ENDPOINTS = {
+    ADD_ACCOUNT: '/bank/add',
+    LIST_ACCOUNTS: '/bank/list',
+    SET_DEFAULT: '/bank/set-default',
+    REMOVE_ACCOUNT: '/bank/remove',
+};
+
 export const STORAGE_KEYS = {
     AUTH_TOKEN: 'auth_token',
     USER_DATA: 'user_data',
