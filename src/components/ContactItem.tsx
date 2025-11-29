@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Contact } from '../types';
 
 interface ContactItemProps {
-    contact: Contact,
+    contact: Contact;
     onPress: (contact: Contact) => void;
     showArrow?: boolean;
 }
@@ -15,8 +15,26 @@ const ContactItem: React.FC<ContactItemProps> = ({
     showArrow = true
 }) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            style={styles.container}
+            onPress={() => onPress(contact)}
+        >
+            <View style={styles.avatar}>
+                <Text style={styles.avatarText}>
+                    {contact.name ? contact.name.charAt(0).toUpperCase() : contact.phone.charAt(0)}
+                </Text>
+            </View>
 
+            <View style={styles.details}>
+                <Text style={styles.name}>
+                    {contact.name || 'Unknown Contact'}
+                </Text>
+                <Text style={styles.phone}>{contact.phone}</Text>
+            </View>
+
+            {showArrow && (
+                <Ionicons name="chevron-forward" size={20} color="#CCCCCC" />
+            )}
         </TouchableOpacity>
     );
 };
