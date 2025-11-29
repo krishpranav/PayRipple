@@ -42,6 +42,18 @@ const HomeScreen: React.FC = () => {
         navigation.navigate('BankAccounts');
     };
 
+    const handleSendMoney = () => {
+        navigation.navigate('SendMoney');
+    };
+
+    const handleScanQR = () => {
+        navigation.navigate('QRScan');
+    };
+
+    const handleReceiveMoney = () => {
+        navigation.navigate('QRGenerate');
+    };
+
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#6C63FF" barStyle="light-content" />
@@ -86,11 +98,25 @@ const HomeScreen: React.FC = () => {
                     <Text style={styles.sectionTitle}>Quick Actions</Text>
 
                     <View style={styles.actionsGrid}>
-                        <View style={styles.actionItem}>
+                        <View style={styles.actionItem} onTouchEnd={handleSendMoney}>
                             <View style={styles.actionIcon}>
-                                <Ionicons name="person-outline" size={24} color="#6C63FF" />
+                                <Ionicons name="paper-plane-outline" size={24} color="#6C63FF" />
                             </View>
-                            <Text style={styles.actionLabel}>Profile</Text>
+                            <Text style={styles.actionLabel}>Send</Text>
+                        </View>
+
+                        <View style={styles.actionItem} onTouchEnd={handleReceiveMoney}>
+                            <View style={styles.actionIcon}>
+                                <Ionicons name="qr-code-outline" size={24} color="#6C63FF" />
+                            </View>
+                            <Text style={styles.actionLabel}>Receive</Text>
+                        </View>
+
+                        <View style={styles.actionItem} onTouchEnd={handleScanQR}>
+                            <View style={styles.actionIcon}>
+                                <Ionicons name="scan-outline" size={24} color="#6C63FF" />
+                            </View>
+                            <Text style={styles.actionLabel}>Scan</Text>
                         </View>
 
                         <View style={styles.actionItem} onTouchEnd={handleViewBankAccounts}>
@@ -98,20 +124,6 @@ const HomeScreen: React.FC = () => {
                                 <Ionicons name="business-outline" size={24} color="#6C63FF" />
                             </View>
                             <Text style={styles.actionLabel}>Banks</Text>
-                        </View>
-
-                        <View style={styles.actionItem}>
-                            <View style={styles.actionIcon}>
-                                <Ionicons name="qr-code-outline" size={24} color="#6C63FF" />
-                            </View>
-                            <Text style={styles.actionLabel}>Scan QR</Text>
-                        </View>
-
-                        <View style={styles.actionItem}>
-                            <View style={styles.actionIcon}>
-                                <Ionicons name="card-outline" size={24} color="#6C63FF" />
-                            </View>
-                            <Text style={styles.actionLabel}>Cards</Text>
                         </View>
                     </View>
                 </View>
