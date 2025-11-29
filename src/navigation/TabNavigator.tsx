@@ -6,6 +6,11 @@ import HomeScreen from '../screens/HomeScreen';
 import AddMoneyScreen from '../screens/AddMoneyScreen';
 import BankAccountsScreen from '../screens/BankAccountsScreen';
 import TransactionHistoryScreen from '../screens/TransactionHistoryScreen';
+import SendMoneyScreen from '../screens/SendMoneyScreen';
+import QRScanScreen from '../screens/QRScanScreen';
+import QRGenerateScreen from '../screens/QRGenerateScreen';
+import PaymentConfirmationScreen from '../screens/PaymentConfirmationScreen';
+import PaymentSuccessScreen from '../screens/PaymentSuccessScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -24,6 +29,53 @@ const HomeStack = () => (
             component={HomeScreen}
             options={{
                 headerShown: false
+            }}
+        />
+        <Stack.Screen
+            name="SendMoney"
+            component={SendMoneyScreen}
+            options={{
+                title: 'Send Money',
+                headerStyle: { backgroundColor: '#6C63FF' },
+                headerTintColor: '#fff',
+                headerTitleStyle: { fontWeight: 'bold' },
+            }}
+        />
+        <Stack.Screen
+            name="QRScan"
+            component={QRScanScreen}
+            options={{
+                title: 'Scan QR Code',
+                headerStyle: { backgroundColor: '#6C63FF' },
+                headerTintColor: '#fff',
+                headerTitleStyle: { fontWeight: 'bold' },
+            }}
+        />
+        <Stack.Screen
+            name="QRGenerate"
+            component={QRGenerateScreen}
+            options={{
+                title: 'Receive Payment',
+                headerStyle: { backgroundColor: '#6C63FF' },
+                headerTintColor: '#fff',
+                headerTitleStyle: { fontWeight: 'bold' },
+            }}
+        />
+        <Stack.Screen
+            name="PaymentConfirmation"
+            component={PaymentConfirmationScreen}
+            options={{
+                title: 'Confirm Payment',
+                headerStyle: { backgroundColor: '#6C63FF' },
+                headerTintColor: '#fff',
+                headerTitleStyle: { fontWeight: 'bold' },
+            }}
+        />
+        <Stack.Screen
+            name="PaymentSuccess"
+            component={PaymentSuccessScreen}
+            options={{
+                headerShown: false,
             }}
         />
         <Stack.Screen
